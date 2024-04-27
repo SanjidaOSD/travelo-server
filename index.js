@@ -80,7 +80,7 @@ async function run() {
             $set : {
               countryName : updateSpot.countryName,
               spotName : updateSpot.spotName,
-              image : updateSpot.supplier,
+              image : updateSpot.image,
               location : updateSpot.location,
               description : updateSpot.description,
               average : updateSpot.average,
