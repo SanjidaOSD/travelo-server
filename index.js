@@ -70,6 +70,28 @@ async function run() {
         res.send(result)
       })
 
+    // Update spot data
+    app.put('/allTouristsSpot/:id', async(req, res)=>{
+        const id = req.params.id;
+        const filter = {_id : new ObjectId(id)}
+        const options = { upsert: true };
+        const updateSpot = req.body;
+        const coffee = {
+            $set : {
+              countryName : updateSpot.countryName,
+              spotName : updateSpot.spotName,
+              image : updateSpot.supplier,
+              location : updateSpot.location,
+              description : updateSpot.description,
+              average : updateSpot.average,
+              seasonality : updateSpot.seasonality,
+              travelTime : updateSpot.travelTime,
+              totalVisitor : updateSpot.totalVisitor
+            }
+        }
+        const result = await spotCollection.updateOne(filter, coffee, options);
+        console.log(result);
+      })
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
