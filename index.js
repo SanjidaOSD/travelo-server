@@ -90,7 +90,7 @@ async function run() {
             }
         }
         const result = await spotCollection.updateOne(filter, coffee, options);
-        console.log(result);
+        res.send(result)
       })
 
     // Send a ping to confirm a successful connection
