@@ -94,9 +94,18 @@ async function run() {
         res.send(result)
       })
 
+      // Get all country from database
       app.get('/country', async(req, res)=>{
         const cursor = countryCollection.find();
         const result = await cursor.toArray();
+        res.send(result)
+      }) 
+
+      // Get all spot of a country from database
+      app.get('/country/:country', async(req, res)=>{
+        const country = req.params.country
+        const query = {countryName : country}
+        const result = await spotCollection.find(query).toArray();
         res.send(result)
       }) 
 
