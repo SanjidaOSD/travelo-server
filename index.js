@@ -23,7 +23,8 @@ async function run() {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
 
-    const spotCollection = client.db("TraveloDB").collection('AllSpots')
+    const spotCollection = client.db("TraveloDB").collection('AllSpots');
+    const countryCollection = client.db("TraveloDB").collection('Country');
 
 
 
